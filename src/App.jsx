@@ -1,10 +1,22 @@
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AppRoutes from "./routes";
-import { Provider } from "react-redux";
-import { store } from "./store";
-export default function App() {
+import "./App.css";
+
+function App() {
   return (
-    <Provider store={store}>
+    <div className="app">
       <AppRoutes />
-    </Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <ToastContainer
+        autoClose={3000}
+        closeOnClick
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+      />
+    </div>
   );
 }
+
+export default App;
